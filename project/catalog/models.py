@@ -9,6 +9,7 @@ class Item(models.Model):
 
 
 class Basket(models.Model):
+    item = models.ForeignKey('Item', on_delete=models.PROTECT)
     quantity = models.IntegerField()
     total_price = F('Item.price') * F('quantity')
 
