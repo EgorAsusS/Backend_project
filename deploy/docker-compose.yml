@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  web:
+    build: C:\Games\Backend_project\project\
+    command: python /usr/src/project/manage.py runserver 0.0.0.0:8000
+    volumes:
+      - C:\Games\Backend_project\project\:/usr/src/project/
+    ports:
+      - 8000:8000
+    env_file:
+      - ./.env.dev
