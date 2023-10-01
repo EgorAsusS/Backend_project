@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from .forms import UserForm
 
 
-def index(request):
+def register(request):
     submitbutton = request.POST.get("submit")
 
     username = ''
