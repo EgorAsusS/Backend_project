@@ -38,7 +38,3 @@ def index(request):
     return render(request, 'catalog/index.html', {'form': form})
 
 
-def auth(request):
-    user = User.objects.create_user(username, user_email, user_password, user_first_name, user_last_name)
-    user.save()
-    return HttpResponse('Пользователь создан')
