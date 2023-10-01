@@ -3,6 +3,7 @@ from django.http import HttpResponse, JsonResponse
 from django.contrib.auth.models import User
 from .forms import UserForm
 
+
 def index(request):
     submitbutton = request.POST.get("submit")
 
@@ -21,12 +22,12 @@ def index(request):
         for i in users:
             if i.username == username:
                 return JsonResponse({'Status': 403,
-                                    'Content-Type': 'application/json',
-                                    'Body':
-                                        {
-                                            'message': 'Login failed'
-                                        }
-                                    })
+                                     'Content-Type': 'application/json',
+                                     'Body':
+                                         {
+                                             'message': 'Login failed'
+                                         }
+                                     })
             else:
                 user = User.objects.create_user(username)
                 user.first_name = firstname
@@ -34,8 +35,7 @@ def index(request):
                 user.email = emailvalue
                 user.save()
 
-
-    return render(request, 'catalog/index.html')
+    return render(request, 'catalog/index.html', {'form': form})
 
 
 def auth(request):
