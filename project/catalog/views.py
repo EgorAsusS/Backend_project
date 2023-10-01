@@ -33,16 +33,12 @@ def index(request):
                 user.last_name = lastname
                 user.email = emailvalue
                 user.save()
-    context = {
-        'username': username,
-        'first_name': firstname,
-        'last_name': lastname,
-        'email': emailvalue,
-    }
-    return render(request, 'catalog/index.html', context)
 
 
-def register(request):
+    return render(request, 'catalog/index.html')
+
+
+def auth(request):
     user = User.objects.create_user(username, user_email, user_password, user_first_name, user_last_name)
     user.save()
     return HttpResponse('Пользователь создан')

@@ -3,5 +3,5 @@ from .views import *
 
 urlpatterns = [
     path('catalog/', index),
-    path('catalog/register', register)
+    path('catalog/register', auth)
 ]
